@@ -1,0 +1,14 @@
+name: fpfantasy
+description: Fp fantasy provides fp styles in the dart 2
+version: 0.0.1
+homepage: https://github.com/shindakioku/fpfantasy
+author: firstlast <shindakioku@gmail.com>
+
+environment:
+  sdk: '>=2.0.0-dev.67.0 <3.0.0'
+
+#dependencies:
+#  path: ^1.4.1
+
+dev_dependencies:
+  test: ^1.3.0
