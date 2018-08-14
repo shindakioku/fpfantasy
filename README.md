@@ -6,13 +6,7 @@ Created from templates made available by Stagehand under a BSD-style
 [license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
 
 ## Usage
-See [wiki](https://github.com/shindakioku/fpfantasy/wiki)
-
-## Todo:
-  * Refactor
-  * Write more tests
-  * Add Monads
-  * Write more functions
+[documentation](https://shindakioku.github.io)
 
 ## Features and bugs
 
