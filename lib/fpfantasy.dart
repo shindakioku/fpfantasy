@@ -10,3 +10,4 @@ export './src/concat.dart';
 export './src/matching.dart';
 export './src/zip.dart';
 export './src/types.dart';
+export './src/maybe.dart';
