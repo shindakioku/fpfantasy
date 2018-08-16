@@ -16,4 +16,3 @@ dynamic concat(dynamic a, dynamic b) {
 
   return null;
 }
-
