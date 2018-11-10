@@ -27,7 +27,7 @@ class _Types<T> {
 
   _Types(this._types, [this._error]);
 
-  dynamic check<E>(E arg, [error(String a)]) {
+  check(arg, [error(String a)]) {
     return checkTypes(_types, arg, error ?? _error);
   }
 }
