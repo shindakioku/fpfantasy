@@ -1,7 +1,7 @@
 import './list/flattenList.dart';
 import './map/flattenMap.dart';
 
-dynamic concat(dynamic a, dynamic b) {
+dynamic concat<T>(dynamic a, dynamic b) {
   if (a is String) return '${a}${b}';
 
   if (a is int) return int.parse('${a}${b}');

@@ -1,11 +1,10 @@
-var types =
+dynamic types =
     <T>(List<T> args, [error(String a)]) => new _Types<T>(args, error).check;
 
 String typeToString<T>(T type) =>
     type.toString().replaceAll(new RegExp('(<[^>]+>)'), '').toLowerCase();
 
-/* void | Function (Error) */ checkTypes<T>(List types, T arg,
-    [error(String a)]) {
+dynamic checkTypes<T>(List types, T arg, [error(String a)]) {
   var argType =
       arg is Map ? 'map' : arg is List ? 'list' : typeToString(arg.runtimeType);
   var isCorrect = false;

@@ -1,16 +1,11 @@
 import './curry/curry.dart';
 
-dynamic _call<T>(List<Function> functions, T data) {
-  for (Function f in functions) {
-    data = f(data);
-  }
+E _call<T, E>(List<E Function(T _)> fns, T _) =>
+    fns.fold(_, (acc, f) => f(acc)) as E;
 
-  return data;
-}
+Function compose<T, E>(List<E Function(T _)> functions) =>
+    curry((T data) => _call<T, E>(functions, data), argsLength: 1);
 
-Function compose(List<Function> functions) =>
-    curry(<T>(T data) => _call<T>(functions, data), argsLength: 1);
-
-Function composeK(List<Function> functions) =>
-    curry(<T>(T data) => _call<T>(functions.reversed.toList(), data),
+Function composeK<E, T>(List<E Function(T _)> functions) =>
+    curry((T data) => _call<T, E>(functions.reversed.toList(), data),
         argsLength: 1);

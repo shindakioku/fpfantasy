@@ -16,6 +16,7 @@ bool equals<T>(T a, T b) {
     var first = flattenList(a);
     var second = flattenList(b);
 
+    // @todo: Use Immutable List with filter and first element, return false unless first element isn't null or length isn't 0
     for (var i = 0; i < first.length; i++) {
       if (first[i] != second[i]) {
         return false;

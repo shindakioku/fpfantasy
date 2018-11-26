@@ -98,7 +98,7 @@ void main() {
 
   test('Shuffle', () {
     var a = new ImList([0, 1, 2]);
-    var b = a.shuffle();
+    a.shuffle();
 
     expect(a.data, [0, 1, 2]);
   });
