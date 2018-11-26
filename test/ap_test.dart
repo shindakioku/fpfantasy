@@ -3,8 +3,8 @@ import 'package:test/test.dart';
 
 void main() {
   test('Ap', () {
-    var a = (x) => x + 1;
-    var b = (x) => x * 2;
+    int Function(int) a = (int x) => x + 1;
+    int Function(int) b = (int x) => x * 2;
     var data = [1, 2];
 
     var result = ap([a, b], data);

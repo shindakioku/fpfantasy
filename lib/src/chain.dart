@@ -1,39 +1,33 @@
-var chainList = (List d) => new ChainList(d);
+import './ap.dart';
 
-var chainMap = (Map d) => new ChainMap(d);
+var chainList = <T>(List<T> d) => new ChainList<T>(d);
 
-class ChainList<T> {
-  List<T> _data = [];
+var chainMap = <K, V>(Map<K, V> d) => new ChainMap<K, V>(d);
 
-  ChainList(this._data);
+abstract class _Base<F, T> {
+  T _data;
+  List<F> _functions = [];
 
-  ChainList<T> c<T2>(f(T)) {
-    var d = <T2>[];
+  _Base(this._data);
 
-    _data.forEach((v) => d.add(f(v)));
-
-    _data = d as List<T>;
+  _Base<F, T> c(F f) {
+    _functions.add(f);
 
     return this;
   }
 
-  List<T> result() => _data;
+  result();
 }
 
-class ChainMap<K, V> {
-  Map<K, V> _data = {};
+class ChainList<T> extends _Base<dynamic Function(T _), List<T>> {
+  ChainList(List<T> _) : super(_);
 
-  ChainMap(this._data);
+  result() => ap(_functions, _data);
+}
 
-  ChainMap<K, V> c(f(V)) {
-    var d = {};
+class ChainMap<K, V> extends _Base<dynamic Function(V _), Map<K, V>> {
+  ChainMap(Map<K, V> _) : super(_);
 
-    _data.forEach((k, v) => d.addAll({k: f(v)}));
-
-    _data = d;
-
-    return this;
-  }
-
-  Map<K, V> result() => _data;
+  result() =>
+      _functions.fold(_data, (map, f) => map.map((k, v) => MapEntry(k, f(v))));
 }
