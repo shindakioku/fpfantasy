@@ -1,7 +1,25 @@
 import './ap.dart';
 
+/**
+ * Calls each functions for each value in the list.
+ * 
+ *      chainList(<int>[1, 2, 3])
+ *        .c((int v) => v + 1)
+ *        .c((int v) => v * 2)
+ *        .result(); // 4, 6, 8
+ * 
+ */
 var chainList = <T>(List<T> d) => new ChainList<T>(d);
 
+/**
+ * Calls each functions for each value in the list.
+ * 
+ *      chainMap(int, int>{0: 1, 1: 2, 2: 3})
+ *        .c((int v) => v + 1)
+ *        .c((int v) => v * 2)
+ *        .result(); // {0: 4, 1: 6, 2: 8}
+ * 
+ */
 var chainMap = <K, V>(Map<K, V> d) => new ChainMap<K, V>(d);
 
 abstract class _Base<F, T> {

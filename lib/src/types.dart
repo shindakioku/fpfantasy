@@ -1,3 +1,18 @@
+/**
+ * Provides union types.
+ * 
+ *      var IntString = types([int, String])
+ *      var f = <T>(T a) {
+ *        var b = IntString(a, (String argType) => 'Incorrect type ${argType}');
+ *
+ *        if (F.isNotNull(b)) return b;
+ *
+ *        return true;
+ *      };
+ *      f(1); // true
+ *      f([]); // Incorrect type list
+ * 
+ */
 dynamic types =
     <T>(List<T> args, [error(String a)]) => new _Types<T>(args, error).check;
 

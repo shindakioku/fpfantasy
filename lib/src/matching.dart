@@ -2,6 +2,22 @@ import './equals.dart';
 
 var default_ = 'default';
 
+/**
+ * Same with switch/case or if/ifelse.
+ * Can be call with [List], [Map] and with 'curring'.
+ * 
+ *      var _ = matching([
+ *         [0, () => 2],
+ *         [1, () => 3],
+ *         [default_, 'default']
+ *       ]);
+ *      _(4); // 'default'
+ * 
+ *      var _ = 
+ *          matching(0, () => () => 2)('a', [1, 2])([], {})(default_, 'default');
+ *      _(0)(); 2
+ * 
+ */
 Function matching<T>(T a, [b]) {
   if (isNull(b)) return matchWithoutCurry(a as List);
 

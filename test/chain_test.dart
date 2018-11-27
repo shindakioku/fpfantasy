@@ -3,7 +3,10 @@ import 'package:test/test.dart';
 
 void main() {
   test('Chain list', () {
-    var s = chainList(<int>[1, 2, 3]).c((int v) => v + 1).c((int v) => v * 2).result();
+    var s = chainList(<int>[1, 2, 3])
+        .c((int v) => v + 1)
+        .c((int v) => v * 2)
+        .result();
     var result = [((1 + 1) * 2), ((2 + 1) * 2), ((3 + 1) * 2)];
 
     expect(result, s);
