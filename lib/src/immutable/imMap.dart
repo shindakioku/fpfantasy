@@ -1,6 +1,8 @@
 import '../map/generate.dart';
 import '../equals.dart';
 
+/// Use this extend http://github.com/fpdart/immutables/
+/// @Deprecated('Will be removed')
 class ImMap<K, V> {
   Map<K, V> _data = {};
 

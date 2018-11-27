@@ -1,3 +1,5 @@
+/// Use this extend http://github.com/fpdart/immutables/
+/// @Deprecated('Will be removed')
 class ImList<E> {
   List<E> _data = [];
 
